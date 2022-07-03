@@ -69,7 +69,7 @@ export default function CadastroUsuario(){
 }
 
 const Container = styled.div `
-    min-height: 1000px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;

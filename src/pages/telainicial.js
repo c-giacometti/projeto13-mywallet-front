@@ -1,23 +1,26 @@
 import { useState, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import axios from 'axios';
+import Top from './main-page-items/top';
+import Records from './main-page-items/records';
+import Register from './main-page-items/register';
 
 export default function TelaInicial(){
+
+    const text = 'Olá, Camilla';
+
     return (
         <Container>
-            {/* <Top />
+            <Top text={text} appear={true} />
             <Records />
-            <Register /> */}
+            <Register /> 
         </Container>
     );
 }
 
 const Container = styled.div `
-    min-height: 1000px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     background-color: #8C11BE;
 `
