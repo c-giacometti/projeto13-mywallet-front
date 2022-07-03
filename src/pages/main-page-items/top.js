@@ -10,7 +10,7 @@ export default function Top( {text, appear} ){
             <span>{text}</span>
             <ion-icon appear={appear} name="log-out-outline" onClick={() => navigate('/')}></ion-icon>
         </Container>
-    )
+    );
 }
 
 const Container = styled.div `
@@ -24,8 +24,9 @@ const Container = styled.div `
     font-size: 26px;
     font-weight: 700;
     color: white;
-    
+
     ion-icon {
         font-size: 40px;
+        display: ${props => props.appear ? 'flex' : 'none'};
     }
 `

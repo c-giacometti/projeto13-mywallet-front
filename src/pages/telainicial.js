@@ -4,7 +4,7 @@ import Top from './main-page-items/top';
 import Records from './main-page-items/records';
 import Register from './main-page-items/register';
 
-export default function TelaInicial(){
+export default function InitialPage(){
 
     const text = 'Olá, Camilla';
 

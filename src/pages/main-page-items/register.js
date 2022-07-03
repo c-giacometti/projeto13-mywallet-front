@@ -46,14 +46,15 @@ const Container = styled.div `
         justify-content: space-between;
         font-size: 18px;
         font-weight: 700;
-        line-height: 20px;
         color: white;
         border-radius: 5px;
         padding: 10px;
+        cursor: pointer;
     }
 
     span {
         width: 50%;
+        line-height: 20px;
     }
 
     ion-icon {

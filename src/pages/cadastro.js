@@ -2,13 +2,12 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
 import MyWalletLogo from '../general-login-signup/logo';
 import DefaultInput from '../general-login-signup/default-input';
 import DefaultButton from '../general-login-signup/default-button';
 import DefaultLink from '../general-login-signup/default-link';
 
-export default function CadastroUsuario(){
+export default function UserSignUp(){
 
     const [name, setname] = useState('');
     const [email, setEmail] = useState('');
@@ -69,10 +68,12 @@ export default function CadastroUsuario(){
 }
 
 const Container = styled.div `
+    width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #8C11BE;
+
 `
