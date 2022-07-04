@@ -2,12 +2,11 @@ import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
-
-/* import UserContext from './user-context'; */
-import MyWalletLogo from '../general-login-signup/logo';
-import DefaultInput from '../general-login-signup/default-input';
-import DefaultButton from '../general-login-signup/default-button';
-import DefaultLink from '../general-login-signup/default-link';
+import UserContext from '../user-context';
+import MyWalletLogo from './general-login-signup/logo';
+import DefaultInput from './general-login-signup/default-input';
+import DefaultButton from './general-login-signup/default-button';
+import DefaultLink from './general-login-signup/default-link';
 
 export default function Login(){
 
@@ -15,9 +14,9 @@ export default function Login(){
     const [password, setPassword] = useState('');
     const [disable, setDisable] = useState('');
 
-    /* const { setUserInfoObject } = useContext(UserContext); */
+    const { setUserInfo } = useContext(UserContext);
     
-    const API = 'http://localhost:5000/'
+    const API = 'http://localhost:5000/login';
     const linkText = 'Primeira vez? Cadastre-se!';
     const buttonText = 'Entrar';
 
@@ -38,7 +37,7 @@ export default function Login(){
 
         promise
             .then(response => {
-                /* setUserInfoObject(response.data); */
+                setUserInfo(response.data);
                 navigate('/inicio');
             })
             .catch(() => {

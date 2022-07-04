@@ -5,12 +5,21 @@ export default function Top( {text, appear} ){
 
     const navigate = useNavigate(); 
 
-    return (
-        <Container>
-            <span>{text}</span>
-            <ion-icon appear={appear} name="log-out-outline" onClick={() => navigate('/')}></ion-icon>
-        </Container>
-    );
+    if(appear){
+        return (
+            <Container>
+                <span>{text}</span>
+                <ion-icon name="log-out-outline" onClick={() => navigate('/')}></ion-icon>
+            </Container>
+        );
+    } else {
+        return (
+            <Container>
+                <span>{text}</span>
+            </Container>
+        );
+    }
+
 }
 
 const Container = styled.div `
@@ -27,6 +36,6 @@ const Container = styled.div `
 
     ion-icon {
         font-size: 40px;
-        display: ${props => props.appear ? 'flex' : 'none'};
+        cursor: pointer;
     }
 `

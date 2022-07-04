@@ -2,10 +2,10 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import MyWalletLogo from '../general-login-signup/logo';
-import DefaultInput from '../general-login-signup/default-input';
-import DefaultButton from '../general-login-signup/default-button';
-import DefaultLink from '../general-login-signup/default-link';
+import MyWalletLogo from './general-login-signup/logo';
+import DefaultInput from './general-login-signup/default-input';
+import DefaultButton from './general-login-signup/default-button';
+import DefaultLink from './general-login-signup/default-link';
 
 export default function UserSignUp(){
 
@@ -15,7 +15,7 @@ export default function UserSignUp(){
     const [passwordConfirm, setPasswordConfirm] = useState('');
     const [disable, setDisable] = useState('');
 
-    const API = 'http://localhost:5000/';
+    const API = 'http://localhost:5000/sign-up';
     const linkText = 'Já tem uma conta? Faça login!';
     const buttonText = 'Cadastrar';
 
@@ -32,7 +32,7 @@ export default function UserSignUp(){
                 name,
                 email,
                 password                        
-                }
+            }
 
             const promise = axios.post(API, accountObject);
 
@@ -40,9 +40,15 @@ export default function UserSignUp(){
             .then(() => {
                 navigate('/');
             })
-            .catch(() => {
-                alert('Não foi possível finalizar o cadastro');
-                setDisable('');
+            .catch((error) => {
+                if(error.response.status === 400) {
+                    alert('E-mail já cadastrado');
+                    setDisable('');
+                }
+                else {
+                    alert('Não foi possível finalizar o cadastro');
+                    setDisable('');
+                }
             })
         } else {
             alert('Confirme a senha corretamente');

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Top from "./main-page-items/top";
-import Form from "./registerform";
+import Top from "./page-items/top";
+import Form from "./page-items/registerform";
 
 export default function EntryRegister(){
 
